@@ -1,7 +1,7 @@
 # Saucerframe
 [![PyPI version](https://img.shields.io/badge/python-3-blue.svg)](https://www.python.org/)  [![License](https://img.shields.io/badge/license-GPLv2-red.svg)](https://raw.githubusercontent.com/sqlmapproject/sqlmap/master/LICENSE) 
 
-saucerframe是一个基于python3的开源批量POC检测框架，默认使用协程异步请求，支持多线程并发，支持多种指定目标方式，可用于批量POC检测，也可根据需要扩展功能。**欢迎star和pr**
+saucerframe（https://github.com/saucer-man/saucerframe）是一个基于python3的开源批量POC检测框架，默认使用协程异步请求，支持多线程并发，支持多种指定目标方式，可用于批量POC检测，也可根据需要扩展功能。**为了方便个人使用，在原项目上添加了一点功能，请见谅**
 
 **本项目用来交流学习，切勿用来做违法之事**
 
@@ -10,7 +10,8 @@ saucerframe是一个基于python3的开源批量POC检测框架，默认使用�
 - 支持多线程并发/协程
 - 指定目标支持多种方式
     - 指定单个目标
-    - 从文本种获取目标
+    - 从文本中获取目标
+    - 从目录中获取目标（以目录下的子文件或目录为目标）
     - 某一网段获取目标 e.g. 192.168.1.0/24
     - 某一ip段获取目标 192.168.1.0-192.168.2.33
     - 支持多种api批量获取目标: [Shodan](https://www.shodan.io/)、[Zoomeye](https://www.zoomeye.org/)、[Fofa](https://fofa.so)、[Censys](https://censys.io)
@@ -23,7 +24,7 @@ saucerframe是一个基于python3的开源批量POC检测框架，默认使用�
 <summary>点击查看/关闭</summary>
 
 - 2020-06-24
-添加批量功能。
+添加两个功能：加载任意指定目录下脚本、将目录下的文件路径作为目标（批量处理文件作用）
 
 - 2019-11-25
 重写进度条。
