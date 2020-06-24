@@ -1,7 +1,7 @@
 # Saucerframe
 [![PyPI version](https://img.shields.io/badge/python-3-blue.svg)](https://www.python.org/)  [![License](https://img.shields.io/badge/license-GPLv2-red.svg)](https://raw.githubusercontent.com/sqlmapproject/sqlmap/master/LICENSE) 
 
-saucerframe（https://github.com/saucer-man/saucerframe）是一个基于python3的开源批量POC检测框架，默认使用协程异步请求，支持多线程并发，支持多种指定目标方式，可用于批量POC检测，也可根据需要扩展功能。**为了方便个人使用，在原项目上添加了一点功能，请见谅**
+[saucerframe](https://github.com/saucer-man/saucerframe)是大佬开发一个基于python3的开源批量POC检测框架，默认使用协程异步请求，支持多线程并发，支持多种指定目标方式，可用于批量POC检测，也可根据需要扩展功能。**为了方便个人使用，在原项目上添加了一点功能，请见谅**
 
 **本项目用来交流学习，切勿用来做违法之事**
 
