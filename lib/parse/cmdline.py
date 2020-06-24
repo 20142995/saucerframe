@@ -35,6 +35,8 @@ def cmdLineParser():
                         help="scan a single target (e.g. www.wooyun.org)")
     target.add_argument("-iF", metavar='FILE', dest="target_file", type=str, default="",
                         help="load targets from targetFile (e.g. wooyun_domain.txt)")
+    target.add_argument("-iD", metavar='DIR', dest="target_dir", type=str, default="",
+                        help="load targets from targetdir (e.g. /tmp)")
     target.add_argument('-iR', metavar='START-END', dest="target_range", type=str, default='',
                         help='array from int(start) to int(end) (e.g. 192.168.1.1-192.168.2.100)')
     target.add_argument('-iN', metavar='IP/MASK', dest="target_network", type=str, default='',
