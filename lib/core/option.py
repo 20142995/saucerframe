@@ -84,7 +84,7 @@ def script_register(args):
         sys.exit()
     for script_name in args.script_name.split(","):
         # handle input: "-s ./script/spider.py"
-        if os.path.split(script_name)[0]:
+        if os.path.exists(script_name):
             if os.path.exists(script_name):
                 if os.path.isfile(script_name):
                     if script_name.endswith('.py'):
@@ -93,6 +93,10 @@ def script_register(args):
                         msg = '[-] [{}] not a Python file. Example: [-s spider] or [-s ./scripts/spider.py]' .format(script_name)
                         colorprint.red('[-] ' + msg)
                         sys.exit()
+                elif os.path.isdir(script_name):
+                    for (root, _, files) in os.walk(script_name):
+                        files = filter(lambda x: not x.startswith("__") and x.endswith(".py"),files)
+                        conf.module_path.extend(map(lambda x: os.path.join(root, x), files))
                 else:
                     msg = '[-] [{}] not a file. Example: [-s spider] or [-s ./scripts/spider.py]'.format(script_name)
                     colorprint.red(msg)
@@ -139,7 +143,16 @@ def target_register(args):
             targets = f.readlines()
             for target in targets:
                 conf.target.add(target.strip('\n'))
-
+    # dir/file target to queue
+    if args.target_dir:
+        if not os.path.isdir(args.target_dir):
+            msg = '[-] Targetdir not found: {}'.format(args.target_dir)
+            colorprint.red(msg)
+            sys.exit()
+        msg = '[+] Load targets from : {}'.format(args.target_dir)
+        colorprint.green(msg)
+        for target in os.listdir(args.target_dir):
+            conf.target.add(os.path.join(args.target_dir,target))
     # range of ip target to queue .e.g. 192.168.1.1-192.168.1.100
     if args.target_range:
         try:
